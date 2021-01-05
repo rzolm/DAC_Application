@@ -1,0 +1,132 @@
+Patients:
+
+Patientid
+Name
+NHS
+Dob
+Gender
+Address - line 1, line 2, line 3, city, county, postcode
+Telephone - home, mobile, work
+Email
+Status
+
+Patient service
+Surgery
+Service - incontinence, Shine etc
+Diary owner
+Prescription chaser
+Medication chaser
+Licence
+
+Patient products
+Products
+Product quantity
+Product frequency
+Last date product ordered
+Cutting
+
+Service:
+Serviceid
+Name - shine
+Patented - foreign key
+
+Contact:
+Serviced
+Patientid
+Agentid
+Contactdate
+Contacttype
+
+Order:
+order
+productid - each item in order
+Time placed
+Date
+Agent
+Packer
+Delivery date
+Time sent out
+Delivery category - 24, 48
+Cutting completed 
+
+Backorders:
+Order
+Product
+Patient
+Agent
+Date of arrival
+Delivery date
+
+Surgery:
+Surgery
+Name
+Ref Number
+Address - line1, line2, line, 3, city, postcode
+Telephone
+Email
+Fax
+Contact instructions - do not contact
+
+Notes:
+Text
+Timestamp
+Agent
+
+Agent:
+Agent
+Name
+Role
+Branch
+
+Call:
+Call
+Start
+End
+Agent
+Patient
+Length
+
+Prescription chase: 
+Prescriptionid
+agentid
+surgery
+Prescription type
+Prescription received
+
+Licence:
+Licence name
+
+Product:
+Product
+Product name
+Manufacturer
+Category
+Product code
+Cost
+Availability
+
+Product info:
+Patient
+Name
+Category
+Ref code
+Availability
+When arriving in stock
+Status - discontinued
+
+Warehouse:
+Time order placed - from orders table
+Cutting status - complete
+Time order sent out - from orders table
+Orders delayed - 
+
+Packer:
+PackerID
+Name
+
+Linking tables: 
+patients: products
+
+
+
+
