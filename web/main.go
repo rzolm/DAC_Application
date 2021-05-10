@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"_github.com/go-sql-driver/mysql/pkg/config"
+	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 
 const portNumber = ":8080"

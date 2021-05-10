@@ -1,6 +1,6 @@
 //setting up a template cache
 
-package main
+package render
 
 import (
 	"bytes"

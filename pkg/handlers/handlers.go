@@ -1,4 +1,4 @@
-package main
+package handlers
 
 import (
 	"fmt"
@@ -55,7 +55,7 @@ func (m *Repository) patient(e http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "patient_home.gohtml", &TemplateData{})
 }
 
-func renderTemplate(w http.ResponseWriter, gohtml string) {
+func RenderTemplate(w http.ResponseWriter, gohtml string) {
 	parsedTemplate, _ := template.ParseFiles("./templates/" + gohtml)
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
