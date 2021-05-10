@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"_github.com/go-sql-driver/mysql/pkg/config"
@@ -14,7 +15,7 @@ func main() {
 	var app config.AppConfig
 
 	tc, err := render.createTemplateCache()
-	if err err != nil {
+	if err != nil {
 		log.Fatal("cannot create template cache")
 	}
 	app.TemplateCache = tc
@@ -25,11 +26,19 @@ func main() {
 
 	render.NewTemplates(&app)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request))
-	http.HandleFunc("/", handlers.advisor_login)
-	http.HandleFunc("/", handlers.advisor_home)
-	http.HandleFunc("/", handlers.patient_home)
+	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request))
+	// http.HandleFunc("/", handlers.advisor_login)
+	// http.HandleFunc("/", handlers.advisor_home)
+	// http.HandleFunc("/", handlers.patient_home)
 
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
-	_ = http.ListenAndServe(":8080", nil)
+	//_ = http.ListenAndServe(portNumber, nil)
+
+	srv := &http.Server{
+		Addr:    portNumber,
+		Handler: routes(&app),
+	}
+
+	err = srv.ListenAndServe()
+	log.Fatal(err)
 }
