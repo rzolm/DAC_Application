@@ -12,5 +12,6 @@ import (
 type AppConfig struct {
 	UseCache      bool
 	TemplateCache map[string]*template.Template
-	InfoLog       *log.Logger //allows writing logs to wherever
+	//allows writing logs to wherever needed
+	InfoLog *log.Logger
 }

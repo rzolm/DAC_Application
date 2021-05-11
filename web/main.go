@@ -7,6 +7,7 @@ import (
 
 	"github.com/rzolm/DAC_Application/pkg/config"
 	"github.com/rzolm/DAC_Application/pkg/handlers"
+	"github.com/rzolm/DAC_Application/pkg/render"
 )
 
 const portNumber = ":8080"
@@ -14,14 +15,17 @@ const portNumber = ":8080"
 func main() {
 	var app config.AppConfig
 
-	tc, err := render.createTemplateCache()
+	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
 	}
 	app.TemplateCache = tc
+	//if set to true iyt will read from the cache not the disk
 	app.UseCache = false
 
+	//repo variable receives reference to the app config
 	repo := handlers.NewRepo(&app)
+
 	handlers.NewHandlers(repo)
 
 	render.NewTemplates(&app)

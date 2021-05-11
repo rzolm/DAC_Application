@@ -6,18 +6,20 @@ import (
 	"net/http"
 
 	"github.com/rzolm/DAC_Application/pkg/config"
+	"github.com/rzolm/DAC_Application/pkg/models"
 )
 
-type TemplateData struct {
-	StringMap    map[string]string
-	IntMap       map[string]int
-	FloatMap     map[string]float32
-	Data         map[string]interface{}
-	CSRFToken    string
-	Notification string
-	Warning      string
-	Error        string
-}
+//holds data sent from handlers to data types
+// type TemplaData struct {
+// 	StringMap map[string]string
+// 	IntMap    map[string]int
+// 	FloatMap  map[string]float32
+// 	Data      map[string]interface{}
+// 	CSRFToken string
+// 	Message   string
+// 	Warning   string
+// 	Error     string
+// }
 
 var Repo *Repository
 
@@ -32,27 +34,27 @@ func NewRepo(a *config.AppConfig) *Repository {
 	}
 }
 
-//this sets for the handlers
+//this sets the repository for the handlers
 func NewHandlers(r *Repository) {
 	Repo = r
 }
 
-//index page handler
+//index page handler - method with access to repository
 func (m *Repository) home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
-	RenderTemplate(w, "advisor_login.gohtml", &TemplateData{})
+	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData)
 }
 
-//advisor home page
+//advisor home page - method with access to repository
 func (m *Repository) advisor(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor home page")
-	RenderTemplate(w, "advisor_home.gohtml", &TemplateData{})
+	RenderTemplate(w, "advisor_home.gohtml", &models.TemplateData)
 }
 
-//patient home page
-func (m *Repository) patient(e http.ResponseWriter, r *http.Request) {
+//patient home page - method with access to repository
+func (m *Repository) patient(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("patient home page")
-	RenderTemplate(w, "patient_home.gohtml", &TemplateData{})
+	RenderTemplate(w, "patient_home.gohtml", &models.TemplateData)
 }
 
 func RenderTemplate(w http.ResponseWriter, gohtml string) {

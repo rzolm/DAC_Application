@@ -17,18 +17,21 @@ import (
 //map of functions to be used in the template
 var functions = template.FuncMap{}
 
+var app *config.AppConfig
+
 //this sets the  config fopr the template package
-func newTemplates(a *config.AppConfig) {
+func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
 //renders templates using html/template
 func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateData) {
+	//get the template cache from the app config
 	var tc map[string]*template.Template
 
 	if app.UseCache {
 		//get the template cache from the app config
-		tc = app.Templatecache()
+		tc = app.TemplateCache
 	} else {
 		tc, _ = CreateTemplateCache()
 	}

@@ -16,9 +16,9 @@ func routes(app *config.AppConfig) http.Handler {
 	//mux.Get("/", http.HandleFunc(handlers.repo.advisor_home))
 
 	mux := chi.NewRouter()
-	mux.Get("/", handlers.Repo.advisor_login)
-	mux.Get("/", handlers.Repo.advisor_home)
-	mux.Get("/", handlers.Repo.patient_home)
+	mux.Get("/", handlers.Repo.advisor_login.page)
+	mux.Get("/", handlers.Repo.advisor_home.page)
+	mux.Get("/", handlers.Repo.patient_home.page)
 
 	return mux
 }
