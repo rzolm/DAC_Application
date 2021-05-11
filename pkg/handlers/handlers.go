@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
 
 	"github.com/rzolm/DAC_Application/pkg/config"
@@ -45,7 +44,7 @@ func (m *Repository) Patient(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "patient_home.gohtml", &models.TemplateData)
 }
 
-func RenderTemplate(w http.ResponseWriter, gohtml string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)) {
 	parsedTemplate, _ := template.ParseFiles("./templates/" + gohtml)
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {

@@ -1,5 +1,3 @@
-//setting up a template cache
-
 package render
 
 import (

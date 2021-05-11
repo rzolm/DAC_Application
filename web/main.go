@@ -20,7 +20,7 @@ func main() {
 		log.Fatal("cannot create template cache")
 	}
 	app.TemplateCache = tc
-	//if set to true iyt will read from the cache not the disk
+	//if set to true it will read from the cache not the disk
 	app.UseCache = false
 
 	//repo variable receives reference to the app config
