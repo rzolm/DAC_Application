@@ -10,9 +10,8 @@ import (
 	"net/http"
 	"path/filepath"
 
+	"github.com/rzolm/DAC_Application/config"
 	"github.com/rzolm/DAC_Application/pkg/handlers"
-
-	"_github.com/go-sql-driver/mysql/pkg/config"
 )
 
 var functions = template.FuncMap{}

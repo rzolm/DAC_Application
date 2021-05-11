@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"_github.com/go-sql-driver/mysql/pkg/config"
+	"github.com/rzolm/DAC_Application/config"
 	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 

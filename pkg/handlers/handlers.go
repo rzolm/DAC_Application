@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"_github.com/go-sql-driver/mysql/pkg/config"
+	"github.com/rzolm/DAC_Application/config"
 )
 
 type TemplateData struct {
