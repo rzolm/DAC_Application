@@ -28,19 +28,19 @@ func NewHandlers(r *Repository) {
 }
 
 //index page handler - method with access to repository
-func (m *Repository) home(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
 	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{})
 }
 
 //advisor home page - method with access to repository
-func (m *Repository) advisor(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) Advisor(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor home page")
 	RenderTemplate(w, "advisor_home.gohtml", &models.TemplateData)
 }
 
 //patient home page - method with access to repository
-func (m *Repository) patient(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) Patient(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("patient home page")
 	RenderTemplate(w, "patient_home.gohtml", &models.TemplateData)
 }
