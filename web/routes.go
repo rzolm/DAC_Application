@@ -4,7 +4,8 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/rzolm/DAC_Application/config"
+	"github.com/rzolm/DAC_Application/pkg/config"
+	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 
 func routes(app *config.AppConfig) http.Handler {

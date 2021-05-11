@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/rzolm/DAC_Application/config"
+	"github.com/rzolm/DAC_Application/pkg/config"
 	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 

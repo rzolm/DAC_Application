@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/rzolm/DAC_Application/config"
+	"github.com/rzolm/DAC_Application/pkg/config"
 	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 

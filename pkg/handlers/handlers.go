@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/rzolm/DAC_Application/config"
+	"github.com/rzolm/DAC_Application/pkg/config"
 )
 
 type TemplateData struct {
