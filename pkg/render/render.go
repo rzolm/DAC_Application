@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 
 	"github.com/rzolm/DAC_Application/pkg/config"
-	"github.com/rzolm/DAC_Application/pkg/handlers"
+	"github.com/rzolm/DAC_Application/pkg/models"
 )
 
 //map of functions to be used in the template
@@ -24,8 +24,12 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
+func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+	return td
+}
+
 //renders templates using html/template
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
 	//get the template cache from the app config
 	var tc map[string]*template.Template
 

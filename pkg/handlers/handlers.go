@@ -9,18 +9,6 @@ import (
 	"github.com/rzolm/DAC_Application/pkg/models"
 )
 
-//holds data sent from handlers to data types
-// type TemplaData struct {
-// 	StringMap map[string]string
-// 	IntMap    map[string]int
-// 	FloatMap  map[string]float32
-// 	Data      map[string]interface{}
-// 	CSRFToken string
-// 	Message   string
-// 	Warning   string
-// 	Error     string
-// }
-
 var Repo *Repository
 
 type Repository struct {
@@ -42,7 +30,7 @@ func NewHandlers(r *Repository) {
 //index page handler - method with access to repository
 func (m *Repository) home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
-	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData)
+	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{})
 }
 
 //advisor home page - method with access to repository
