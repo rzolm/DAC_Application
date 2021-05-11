@@ -14,6 +14,7 @@ import (
 	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 
+//map of functions to be used in the template
 var functions = template.FuncMap{}
 
 //this sets the  config fopr the template package
@@ -21,6 +22,7 @@ func newTemplates(a *config.AppConfig) {
 	app = a
 }
 
+//renders templates using html/template
 func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateData) {
 	var tc map[string]*template.Template
 
@@ -36,9 +38,10 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateDat
 
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal("could not get tempplate from cache")
+		log.Fatal(err)
 	}
 
+	//this buffer will hold bytes to test the template
 	buf := new(bytes.Buffer)
 
 	_ = t.Execute(buf, nil)
@@ -56,6 +59,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateDat
 	//}
 }
 
+//create a template cache as a map
 func CreateTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
@@ -68,7 +72,8 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 	for _, page := range pages {
 		name := filepath.Base(page)
 		fmt.Println("page is currently", page)
-		ts, err := template.New(name).Funcs(functions).parseFiles(pages)
+
+		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
 			return myCache, err
 		}
