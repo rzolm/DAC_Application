@@ -9,11 +9,11 @@ import (
 )
 
 func routes(app *config.AppConfig) http.Handler {
-	//build a mux
+	//build a mux (multiplexer)
 	//mux := pat.New()
 
-	//mux.Get("/", http.HandleFunc(handlers.repo.advisor_login))
-	//mux.Get("/", http.HandleFunc(handlers.repo.advisor_home))
+	//mux.Get("/", http.HandleFunc(handlers.Repo.advisor_login))
+	//mux.Get("/", http.HandleFunc(handlers.Repo.advisor_home))
 
 	mux := chi.NewRouter()
 	mux.Get("/", handlers.Repo.advisor_login.page)
