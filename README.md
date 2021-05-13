@@ -10,8 +10,7 @@ found irksome was the loading and saving of notes on patients accounts.
 
 After a few months I showed initiative in the role and was moved to an important contract dealing with 'Spina Bifida' patients in co-operation with a charity.
 For a reason unknown to myself this particular account had even slower database operations when processing patient notes, this would make it very difficult to work 
-at the required speed expected by the employer, causing me a great deal of frustration. I spoke to my manager about this and we contacted the IT contractors for a
-solution. Sadly the contractors did not reply.
+at the required speed expected by the employer, causing me a great deal of frustration. I spoke to my manager about this and we contacted the IT contractors for a solution. Sadly the contractors did not reply.
 
 Over time I sat at my desk frustrated with what was a simple system that performed so poorly that I decided to investigate how I could design a new system plus 
 after my previous role doing Data Analysis I wanted to try a new field in IT. 
