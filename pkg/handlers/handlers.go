@@ -6,6 +6,7 @@ import (
 
 	"github.com/rzolm/DAC_Application/pkg/config"
 	"github.com/rzolm/DAC_Application/pkg/models"
+	"github.com/rzolm/DAC_Application/pkg/render"
 )
 
 var Repo *Repository
@@ -29,6 +30,11 @@ func NewHandlers(r *Repository) {
 //index page handler - method with access to repository
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
+	//get the ip address of the user and store it
+	remoteIP := r.RemoteAddr
+
+	m.App.Session.Put(r.context(), "remote_ip", remoteIP)
+
 	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{})
 }
 
@@ -44,11 +50,24 @@ func (m *Repository) Patient(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "patient_home.gohtml", &models.TemplateData)
 }
 
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)) {
-	parsedTemplate, _ := template.ParseFiles("./templates/" + gohtml)
-	err := parsedTemplate.Execute(w, nil)
-	if err != nil {
-		fmt.Println("error parsing templates", err)
-		return
-	}
+func (m *Repository) Test(w http.ResponseWriter, *http.Request) {
+	stringMap := make(map[string]string)
+	stringMap["test"] = "testing, testing, 123..."
+
+	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
+	stringMap["remote_ip"] = remoteIP
+	//send data to the template
+	render.RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{
+		StringMap: StringMap,
+	})
 }
+
+// func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+// 	// parsedTemplate, _ := template.ParseFiles("./templates/" + gohtml)
+// 	// err := parsedTemplate.Execute(w, nil)
+// 	// if err != nil {
+// 	// 	fmt.Println("error parsing templates", err)
+// 	// 	return
+// 	// }
+// 	stringMap: stringMap,
+// }
