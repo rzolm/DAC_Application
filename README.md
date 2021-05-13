@@ -21,3 +21,8 @@ skills and implementing a simple DAC Application was the ideal project. I had al
 After research I found Go to be interesting for its simplicity, speed and stability. So I decided to develop the application backend in Go.
 
 And here we are...
+
+Built with Go 1.16
+Uses the 'Chi Router' [add here]
+Uses Alex Edwards SCS [add link here]
+Uses NoSurf [add link here] 
