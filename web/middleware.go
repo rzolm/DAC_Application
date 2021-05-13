@@ -14,8 +14,7 @@ import (
 // 	}
 // }
 
-//use no surf to create a csrf handler token
-
+//use no surf to create a csrf handler token to add protection to post requests
 func NoSurf(next http.Handler) http.Handler {
 	csrfHandler := nosurf.New(next)
 
@@ -27,4 +26,9 @@ func NoSurf(next http.Handler) http.Handler {
 		SameSite: http.SameSiteLaxMode,
 	})
 	return csrfHandler
+}
+
+//loads and saves the session on each request
+func SessionLoad(next http.Handler) http.Handler {
+	return session.LoadAndSave(next)
 }

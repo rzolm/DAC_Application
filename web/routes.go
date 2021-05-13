@@ -21,6 +21,7 @@ func routes(app *config.AppConfig) http.Handler {
 	//mux.Use(writeToConsole)
 
 	mux.Use(NoSurf)
+	mux.Use(SessionLoad)
 
 	//get the pages via the handlers repo
 	mux.Get("/", handlers.Repo.advisor_login.page)
