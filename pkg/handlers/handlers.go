@@ -35,7 +35,7 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 
 	//m.App.Session.Put(r.context(), "remote_ip", remoteIP)
 
-	render.Template(w, "advisor_login", &models.TemplateData{})
+	render.Template(w, "templates/advisor_login.gohtml", &models.TemplateData{})
 }
 
 //advisor home page - method with access to repository

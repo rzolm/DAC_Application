@@ -52,7 +52,7 @@ func main() {
 	// http.HandleFunc("/", handlers.advisor_home)
 	// http.HandleFunc("/", handlers.patient_home)
 
-	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
+	fmt.Printf(fmt.Sprintf("Starting application on port %s", portNumber))
 	//_ = http.ListenAndServe(portNumber, nil)
 
 	srv := &http.Server{

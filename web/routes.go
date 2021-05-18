@@ -24,9 +24,9 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Use(SessionLoad)
 
 	//get the pages via the handlers repo
-	mux.Get("/", handlers.Repo.advisor_login)
-	mux.Get("/", handlers.Repo.advisor_home.page)
-	mux.Get("/templates", handlers.Repo.patient_home)
+	mux.Get("/", handlers.Repo.Home)
+	mux.Get("/", handlers.Repo.Advisor)
+	mux.Get("/", handlers.Repo.Patient)
 
 	return mux
 }
