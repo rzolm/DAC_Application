@@ -31,34 +31,34 @@ func NewHandlers(r *Repository) {
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
 	//get the ip address of the user and store it
-	remoteIP := r.RemoteAddr
+	//remoteIP := r.RemoteAddr
 
-	m.App.Session.Put(r.context(), "remote_ip", remoteIP)
+	//m.App.Session.Put(r.context(), "remote_ip", remoteIP)
 
-	RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{})
+	render.Template(w, "advisor_login", &models.TemplateData{})
 }
 
 //advisor home page - method with access to repository
 func (m *Repository) Advisor(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor home page")
-	RenderTemplate(w, "advisor_home.gohtml", &models.TemplateData)
+	render.Template(w, "advisor_home.gohtml", &models.TemplateData{})
 }
 
 //patient home page - method with access to repository
 func (m *Repository) Patient(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("patient home page")
-	RenderTemplate(w, "patient_home.gohtml", &models.TemplateData)
+	render.Template(w, "patient_home.gohtml", &models.TemplateData{})
 }
 
-func (m *Repository) Test(w http.ResponseWriter, *http.Request) {
+func (m *Repository) Test(w http.ResponseWriter, r *http.Request) {
 	stringMap := make(map[string]string)
 	stringMap["test"] = "testing, testing, 123..."
 
 	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
 	stringMap["remote_ip"] = remoteIP
 	//send data to the template
-	render.RenderTemplate(w, "advisor_login.page.gohtml", &models.TemplateData{
-		StringMap: StringMap,
+	render.Template(w, "advisor_login.page.gohtml", &models.TemplateData{
+		//StringMap: StringMap,
 	})
 }
 

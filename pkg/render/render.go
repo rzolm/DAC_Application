@@ -26,7 +26,7 @@ func AddDefaultData(td *models.TemplateData) *models.TemplateData {
 }
 
 //renders templates using html/template
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+func Template(w http.ResponseWriter, gohtml string, td *models.TemplateData) {
 	//get the template cache from the app config
 	var tc map[string]*template.Template
 
@@ -40,7 +40,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 	//get the template cahe from the appconfig
 	//tc := app.TemplateCache
 
-	t, ok := tc[tmpl]
+	t, ok := tc[gohtml]
 	if !ok {
 		fmt.Println("error")
 	}
