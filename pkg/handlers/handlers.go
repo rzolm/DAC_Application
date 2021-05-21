@@ -2,8 +2,10 @@ package handlers
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
+	"github.com/rzolm/DAC_Application/internal/forms"
 	"github.com/rzolm/DAC_Application/pkg/config"
 	"github.com/rzolm/DAC_Application/pkg/models"
 	"github.com/rzolm/DAC_Application/pkg/render"
@@ -25,6 +27,35 @@ func NewRepo(a *config.AppConfig) *Repository {
 //this sets the repository for the handlers
 func NewHandlers(r *Repository) {
 	Repo = r
+}
+
+//handles the advisor login form
+func (m *Repository) PostLogin(w http.ResponseWriter, r http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	//login object
+	login := models.AdvisorLogin{
+		Username: r.Form.Get("Username"),
+		Password: r.Form.Get("Password"),
+	}
+	form := forms.New(r.PostForm)
+
+	form.Has("Username", r)
+
+	if !form.Valid() {
+		data := make(map[string]interface{})
+		data["login"] = login
+
+		render.Template(w, r, "index.page.gohtml", &models.TemplateData{
+			Form: form,
+			Data: data,
+		})
+		return
+	}
 }
 
 //index page handler - method with access to repository
