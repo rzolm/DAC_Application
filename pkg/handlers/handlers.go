@@ -30,12 +30,13 @@ func NewHandlers(r *Repository) {
 //index page handler - method with access to repository
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("advisor login")
-	//get the ip address of the user and store it
-	//remoteIP := r.RemoteAddr
+	render.Template(w, "advisor_login.gohtml", &models.TemplateData{})
+}
 
-	//m.App.Session.Put(r.context(), "remote_ip", remoteIP)
-
-	render.Template(w, "templates/advisor_login.gohtml", &models.TemplateData{})
+//index page handler - post login
+func (m *Repository) Index(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("advisor login")
+	render.Template(w, "advisor_login.gohtml", &models.TemplateData{})
 }
 
 //advisor home page - method with access to repository

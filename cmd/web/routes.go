@@ -28,5 +28,8 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/", handlers.Repo.Advisor)
 	mux.Get("/", handlers.Repo.Patient)
 
+	//agent login form
+	mux.Post("/", handlers.Repo.Index)
+
 	return mux
 }

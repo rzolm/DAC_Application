@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <link rel = "stylesheet" href = "dac_default.css">
+  <title> Product Search - NovaDAC v0.1 </title>
+</head>
+<body>
+<div id = "wrapper">
+  <div id = "header">
+    <h1>NovaDac Advisor Access<h1>
+  </div>
+  <div id = "navigation">
+    <h4>Advisor Home<h4>
+    <h4>Completed Orders</h4>
+    <h4>Cancelled Orders</h4>
+    <h4>Backorders</h4>
+  </div>
+  <div id = "leftcolumn">
+    <form>
+      <label for = "product_search">Product Search</label><br>
+      <input type = "text" id = "product_search" name = "product_search" value = "catheter..." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search">
+  </form>
+  </div>
+  <div id = "content">
+    <h3> Welcome: Claire Fenwick</h3>
+    <br>
+    <h3>Choose Product by Category</h3>
+    <br>
+    <table>
+      <tr>
+        <th>Manufacturer</th>
+        <th>Product Category</th>
+        <th>Model</th>
+        <th>Order No</th>
+        <th>***</th>
+      </tr>
+      <tr>
+        <td>Coloplast</td>
+        <td>Catheter</td>
+        <td>Biocath</td>
+        <td>CO-1234</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Coloplast</td>
+        <td>Catheter</td>
+        <td>Speedicath</td>
+        <td>CO-1235</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Coloplast</td>
+        <td>Catheter</td>
+        <td>Speedicath Compact</td>
+        <td>CO-1236</td>
+        <td>*</td>
+      </tr>
+    </table>
+    <br>
+  </div>
+  <div id = "footer">
+    <h5>NovaDAC 2021 | All Rights Reserved | <a href = "technical.html">Technical Help</a></h5>
+  </div>
+</div>
+<script>
+  console.log("javascript test successful")
+</script>
+</body>
+</html>
