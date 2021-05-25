@@ -9,7 +9,7 @@ import (
 	"github.com/rzolm/DAC_Application/pkg/handlers"
 )
 
-func routes(app *config.AppConfig) http.Handler {
+func Routes(app *config.AppConfig) http.Handler {
 
 	//a mux is a 'http request multiplexer'
 
