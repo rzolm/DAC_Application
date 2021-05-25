@@ -50,7 +50,7 @@ func (m *Repository) PostLogin(w http.ResponseWriter, r http.Request) {
 		data := make(map[string]interface{})
 		data["login"] = login
 
-		render.Template(w, r, "index.page.gohtml", &models.TemplateData{
+		render.Template(w, "index.page.gohtml", &models.TemplateData{
 			Form: form,
 			Data: data,
 		})

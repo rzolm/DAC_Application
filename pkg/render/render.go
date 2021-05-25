@@ -12,6 +12,7 @@ import (
 )
 
 //map of functions to be used in the template
+//FuncMap is the type of map defining the mapping from names to functions
 var functions = template.FuncMap{}
 
 var app *config.AppConfig

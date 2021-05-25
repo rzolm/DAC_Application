@@ -23,11 +23,15 @@ func main() {
 	//change to true when in production
 	app.InProduction = false
 
+	//scs session 'MANAGER' type functions:
+	//initialise a new session manager
 	session = scs.New()
+	//configure session lifetime
 	session.Lifetime = 12 * time.Hour
 	session.Cookie.Persist = true
+	//sets the same site attribute on the session cookie (if empty will not be set)
 	session.Cookie.SameSite = http.SameSiteLaxMode
-	//points to the session field in config (AppConfig)
+	//points to the session field in config (AppConfig) - should be set to true in production
 	session.Cookie.Secure = app.InProduction
 
 	app.Session = session

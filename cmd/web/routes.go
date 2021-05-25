@@ -11,6 +11,8 @@ import (
 
 func routes(app *config.AppConfig) http.Handler {
 
+	//a mux is a 'http request multiplexer'
+
 	//create a new router
 	mux := chi.NewRouter()
 
