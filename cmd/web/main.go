@@ -36,6 +36,7 @@ func main() {
 
 	app.Session = session
 
+	//points to the template cache in render
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
@@ -61,7 +62,7 @@ func main() {
 
 	srv := &http.Server{
 		Addr:    portNumber,
-		Handler: routes(&app),
+		Handler: Routes(&app),
 	}
 
 	err = srv.ListenAndServe()
