@@ -1,4 +1,5 @@
-{{define "base"}}
+<!-- this is the template for the patient data pages -->
+{{define "patient_layout"}}
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -7,17 +8,19 @@
   <link rel = "stylesheet" href = "dac_default.css">
   <title> Advisor Home - NovaDAC v0.1 </title>
 
+  <!-- designated for custom css-->
   {{block "css" .}}
 
   {{end}}
 
 </head>
 <body>
-
+<!-- include what ever data we have, send to this template-->
 {{block "content" .}}
 
 {{end}}
 
+<!-- designated for custom javascript-->
 {{block "js" .}}
 
 {{end}}
