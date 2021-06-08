@@ -11,13 +11,14 @@ import (
 	"github.com/rzolm/DAC_Application/pkg/render"
 )
 
+//repository used by the handlers
 var Repo *Repository
 
 type Repository struct {
 	App *config.AppConfig
 }
 
-//creates a new repository
+//creates a new repository, returns the repository
 func NewRepo(a *config.AppConfig) *Repository {
 	return &Repository{
 		App: a,
