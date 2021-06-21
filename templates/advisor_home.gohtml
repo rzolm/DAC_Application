@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <link rel = "stylesheet" href = "dac_default.css">
+  <title> Advisor Home - NovaDAC v0.1 </title>
+</head>
+<body>
+<div id = "wrapper">
+  <div id = "header">
+    <h1>NovaDac Advisor Access<h1>
+  </div> 
+  <div id = "navigation">
+    <h4>Schedule<h4>
+    <h4>Completed Orders</h4> 
+    <h4>Cancelled Orders</h4> 
+    <h4>Backorders</h4>
+  </div> 
+  <div id = "leftcolumn">
+    <form>
+      <label for = "patient_search"><b>Patient Search</b></label><br>
+      <input type = "text" id = "patient_search" name = "patient_search" value = "enter patient name.." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search"><br>
+      <p3><a href = "advanced_search.html">Advanced Search</a></p3>
+      <br>
+      <br><label for = "order_search"><b>Order Search</b></label><br>
+      <input type = "text" id = "order_search" name = "order_search" value = "ord12345..." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search"><br>
+      <br><label for = "product_search"><b>Product Search</b></label><br>
+      <input type = "text" id = "product_search" name = "product_search" value = "catheter..." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search">
+  </form>
+  </div>
+  <div id = "content">
+    <h3>Welcome:{{.AdvisorFirstName}} {{.AdvisorLastName}}</h3>
+    <br>
+    <h3>Call Schedule for: {{.dateToday }} </h3>
+    <br>
+    <table>
+      <tr>
+        <th>Patient</th>
+        <th>Last Dial</th>
+        <th>Last Contact</th>
+        <th>Last Order</th>
+        <th>***</th>
+      </tr>
+      <tr>
+        <td>{{.firstName}} {{.lastName}}</td>
+        <td>{{.lastDial}}</td>
+        <td>{{.lastContact}}</td>
+        <td>{{.lastOrder}}</td>
+      </tr>  
+      <tr>
+        <td>Katherine Wall</td>
+        <td>2021-01-04</td>
+        <td>2021-03-01</td>
+        <td>2021-03-01</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Rachel Richards</td>
+        <td>2021-01-04</td>
+        <td>2021-03-01</td>
+        <td>2021-03-01</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Sandra Mackson</td>
+        <td>2021-01-04</td>
+        <td>2021-03-01</td>
+        <td>2021-03-01</td>
+        <td>*</td>
+      </tr>
+    </table>  
+    <br>
+  </div> 
+  <div id = "footer">
+    <h5>NovaDAC 2021 | All Rights Reserved | <a href = "technical.html">Technical Help</a></h5>
+  </div> 
+</div>
+
+</body>
+</html>

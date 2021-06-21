@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <link rel = "stylesheet" href = "dac_default.css">
+  <title> Advisor Home - NovaDAC v0.1 </title>
+</head>
+<body>
+<div id = "wrapper">
+  <div id = "header">
+    <h1>NovaDac Advisor Access<h1>
+  </div> 
+  <div id = "navigation">
+    <h4>Schedule<h4>
+    <h4>Completed Orders</h4> 
+    <h4>Cancelled Orders</h4> 
+    <h4>Backorders</h4>
+  </div> 
+  <div id = "leftcolumn">
+    <form>
+      <label for = "patient_search"><b>Patient Search</b></label><br>
+      <input type = "text" id = "patient_search" name = "patient_search" value = "enter patient name.." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search"><br>
+      <p3><a href = "advanced_search.html">Advanced Search</a></p3>
+      <br>
+      <br><label for = "order_search"><b>Order Search</b></label><br>
+      <input type = "text" id = "order_search" name = "order_search" value = "ord12345..." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search"><br>
+      <br><label for = "product_search"><b>Product Search</b></label><br>
+      <input type = "text" id = "product_search" name = "product_search" value = "catheter..." onfocus="this.value=''"><br>
+      <input type = "submit" value = "search">
+  </form>
+  </div>
+  <div id = "content">
+    <h3>Patient Data</h3>  
+    <br>  
+    <h3>{{.PatientFirstName}} {{.PatientLastName}}</h3>
+    <br>
+    <ul>
+      <li>Patient Number:{{.PatientNumber}}</li>
+      <li>Status:{{.PatientStatus}}</li>
+      <li>NHS:{{.PatientNHS}}</li>
+      <li>Gender:{{.PatientGender}}</li>
+      <li>Patient Name:{{.PatientFirstName}} {{.PatientLastName}}</li>
+      <li>D.O.B:{{.PatientDOB}}</li>
+      <li>Address:{{.PatientAddress}}</li>
+      <li>City:{{.PatientCity}}</li>
+      <li>Postcode:{{.PatientPostcode}}</li>
+      <li>Contact Number 01:{{.PatientContactNum01}}</li>
+      <li>Contact Number 02:{{.PatientContactNum02}}</li>
+      <li>Email:{{.PatientEmail}}</li>
+    </ul>
+    <br>
+    <h3>Patient Instructions</h3>
+    <ul>
+      <li>Call the patient by first name</li>
+      <li>Do not discuss account with son</li>
+    </ul>  
+    <br>
+    <h3>Patient History</h3>
+    <br>
+    <h3>Complaints</h3>
+    <h4>No Outstanding Complaints</h4>
+    <br>
+    <h3>Previous Orders</h3>
+    <br>
+    <table>
+      <tr>
+        <th>Order No:</th>
+        <th>Order Date:</th>
+        <th>Advisor:</th>
+      </tr>
+      <tr>
+        <td>{{.OrderId}}</td>
+        <td>{{.DateOrderPlaced}}</td>
+        <td>{{.AgentId}}</td>
+      </tr>
+      <tr>
+        <td>{{.OrderId}}</td>
+        <td>{{.DateOrderPlaced}}</td>
+        <td>{{.AgentId}}</td>
+      </tr>
+      <tr>
+        <td>{{.OrderId}}</td>
+        <td>{{.DateOrderPlaced}}</td>
+        <td>{{.AgentId}}</td>
+      </tr>
+    </table>  
+    <br>
+    <h3>Notes</h3>
+    <br>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Advisor</th>
+        <th>Note</th>
+      </tr>
+      <tr>
+        <td>12-02-2021</td>
+        <td>CFenwick</td>
+        <td>Patient called to make urgent order.{{.previousNotes}}</td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <h3>Patient Equipment</h3>
+    <br>
+    <table>
+      <tr>
+        <th>Last Ordered</th>
+        <th>Product Type</th>
+        <th>Product Name</th>
+        <th>Product Model</th>
+        <th>Product Manufacturer</th>
+        <th>Stock Quantity</th>
+        <th>Select Product</th>
+      </tr>
+      <tr>
+        <td>2021-03-10</td>
+        <td>Catheter</td>
+        <td>Speedicath</td>
+        <td>Compact Eve</td>
+        <td>Coloplast</td>
+        <td>112</td>
+        <td><o>Select</o></td>
+      </tr>
+      <tr>
+        <td>2021-03-10</td>
+        <td>Drainage Bag</td>
+        <td>Simpla</td>
+        <td>Leg Bag</td>
+        <td>Coloplast</td>
+        <td>234</td>
+        <td>Select</td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <form>
+      <label for = "add_equipment"><h3>Search Equipment</h3></label><br>
+      <input type = "text" id = "add_equipment" name = "add_equipment"><br>
+    </form>
+    <br>
+    <h3>Advisor Notes</h3>
+    <br>
+    <form>
+        <textarea rows = "10" cols = "30" name = "notes"></textarea>
+        <br>
+        <br>
+        <input type = "submit" value = "submit">
+    </form>
+  </div> 
+  <div id = "footer">
+    <h5>NovaDAC 2021 | All Rights Reserved | <a href = "technical.html">Technical Help</a></h5>
+  </div> 
+</div>
+
+</body>
+</html>
